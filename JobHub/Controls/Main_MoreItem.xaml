@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="JobHub.Controls.Main_MoreItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="186" d:DesignWidth="186">
+    
+    <Grid x:Name="LayoutRoot" Margin="3,0,3,0" >
+        <Image x:Name="image" Source="/Resource/Image/WVGA/ic_user_feekback.png"/>
+        <TextBlock x:Name="name" Margin="15" FontSize="24" FontWeight="Bold" Text="用户反馈"/>
+    </Grid>
+</UserControl>

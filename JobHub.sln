@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHub.API", "JobHub.API\JobHub.API.csproj", "{CBCC6BCF-7653-48B3-9576-87E7D28FCBAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHub", "JobHub\JobHub.csproj", "{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHub.Dal", "JobHub.Dal\JobHub.Dal.csproj", "{196DE48F-75DC-4DE6-B7A4-84637112C8E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBCC6BCF-7653-48B3-9576-87E7D28FCBAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCC6BCF-7653-48B3-9576-87E7D28FCBAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCC6BCF-7653-48B3-9576-87E7D28FCBAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCC6BCF-7653-48B3-9576-87E7D28FCBAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{196DE48F-75DC-4DE6-B7A4-84637112C8E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{196DE48F-75DC-4DE6-B7A4-84637112C8E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{196DE48F-75DC-4DE6-B7A4-84637112C8E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{196DE48F-75DC-4DE6-B7A4-84637112C8E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,246 @@
+﻿<phone:PhoneApplicationPage
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                            xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+                            xmlns:control="clr-namespace:JobHub.Controls"
+                            xmlns:tool="clr-namespace:JobHub.Tools"
+                            xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" x:Class="JobHub.MainPage"
+                            xmlns:kit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+                            xmlns:Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP71"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            mc:Ignorable="d"
+                            d:DesignWidth="480"
+                            d:DesignHeight="800"
+                            shell:SystemTray.IsVisible="False"
+                             Style="{StaticResource TransitionPageStyle}">
+    <!--<kit:TransitionService.NavigationInTransition>
+        <kit:NavigationInTransition>
+            <kit:NavigationInTransition.Backward>
+                <kit:RotateTransition Mode="In90Clockwise"></kit:RotateTransition>
+            </kit:NavigationInTransition.Backward>
+            <kit:NavigationInTransition.Forward>
+                <kit:RotateTransition Mode="In90Clockwise">
+                </kit:RotateTransition>
+            </kit:NavigationInTransition.Forward>
+        </kit:NavigationInTransition>
+    </kit:TransitionService.NavigationInTransition>-->
+    <phone:PhoneApplicationPage.Resources>
+        <Style TargetType="control:Main_MoreItem">
+            <Setter Property="Margin" Value="10,10,0,0"/>
+            <Setter Property="Height" Value="170"/>
+            <Setter Property="Width" Value="170"/>
+        </Style>
+        <!--<Style TargetType="control:Main_JobItem" x:Key="JobTileStyle">
+            <Setter Property="kit:TiltEffect.IsTiltEnabled" Value="True"/>
+        </Style>
+        <Style TargetType="ListBoxItem">
+            <Setter Property="tool:MetroInMotion.Tilt" Value="3"/>
+        </Style>-->
+        <Storyboard x:Name="Main_ChangeCity_Down">
+        	<DoubleAnimation Duration="0:0:0.5" To="800" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="main_ChangeCity" d:IsOptimized="True"/>
+        </Storyboard>
+        <Storyboard x:Name="Main_ChangeCity_Up">
+        	<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="main_ChangeCity">
+        		<EasingDoubleKeyFrame KeyTime="0" Value="800"/>
+        		<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+        	</DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+    
+	<!-- Sample code showing usage of ApplicationBar
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton x:Name="appbar_button1" IconUri="/Images/appbar_button1.png" Text="Button 1"></shell:ApplicationBarIconButton>
+            <shell:ApplicationBarIconButton x:Name="appbar_button2" IconUri="/Images/appbar_button2.png" Text="Button 2"></shell:ApplicationBarIconButton>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItem1" Text="MenuItem 1"></shell:ApplicationBarMenuItem>
+                <shell:ApplicationBarMenuItem x:Name="menuItem2" Text="MenuItem 2"></shell:ApplicationBarMenuItem>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+    -->
+
+
+	<phone:PhoneApplicationPage.FontFamily>
+		<StaticResource ResourceKey="PhoneFontFamilyNormal"/>
+	</phone:PhoneApplicationPage.FontFamily>
+	<phone:PhoneApplicationPage.FontSize>
+		<StaticResource ResourceKey="PhoneFontSizeNormal"/>
+	</phone:PhoneApplicationPage.FontSize>
+	<phone:PhoneApplicationPage.Foreground>
+		<StaticResource ResourceKey="PhoneForegroundBrush"/>
+	</phone:PhoneApplicationPage.Foreground>
+	<phone:PhoneApplicationPage.DataContext>
+		<Binding Path="Main" Source="{StaticResource Locator}"/>
+	</phone:PhoneApplicationPage.DataContext>
+	<!--LayoutRoot contains the root grid where all other page content is placed-->
+    <Grid x:Name="LayoutRoot">
+       
+        <Grid.Background>
+        <ImageBrush ImageSource="{Binding BG_Main, Source={StaticResource MultiResImageChooser}}"/>
+        </Grid.Background>
+        
+        <Grid Margin="0,10,0,0" VerticalAlignment="Top"  Width="480" Height="80" >
+            <StackPanel HorizontalAlignment="Center"  VerticalAlignment="Top" Orientation="Horizontal">
+               
+                <Image Margin="0,6,0,0" Height="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Source="{Binding IC_Location, Source={StaticResource MultiResImageChooser}}"/>
+                <kit:ListPicker x:Name="schoolListPicker"   Foreground="White"  FontSize="24" Width="200" FontWeight="Bold" BorderThickness="0" ExpansionMode="FullScreenOnly"  Margin="0,-15,0,0" ItemsSource="{Binding UList}"  FullModeHeader="当前城市大学"  Background="Transparent">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <Command:EventToCommand Command="{Binding ChangeSchoolCommand}" CommandParameter="{Binding SelectedIndex,ElementName=schoolListPicker}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <kit:ListPicker.FullModeItemTemplate>
+                        <DataTemplate>
+                            <Border Background="#e5927d" Height="90"  Width="400" Margin="10,15,0,0">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="White" FontWeight="Bold" Text="{Binding}"/>
+                            </Border>
+
+                        </DataTemplate>
+                    </kit:ListPicker.FullModeItemTemplate>
+                  
+                </kit:ListPicker>
+              
+            </StackPanel>
+        </Grid>
+        <controls:Panorama  Margin="0,80,0,0" BorderThickness="16,0,0,0">
+           
+            
+            <controls:PanoramaItem Header="宣讲会" Foreground="Black" FontWeight="Bold">
+                <Grid>
+                    <ProgressBar x:Name="pb_loadJob"  Height="54" Margin="0,-150,0,0"    Width="390" IsIndeterminate="True"/>
+                    <TextBlock x:Name="tb_jobEmpty" Visibility="Collapsed" TextWrapping="Wrap" Width="300" Height="300" Text="没有相关宣讲会，您是否切换到其他城市? O(∩_∩)O哈哈~"/>
+                    <!--<ListBox x:Name="jobListBox" SelectionMode="Single" ItemsSource="{Binding Path=JobsList}">
+                    	<i:Interaction.Triggers>
+                    		<i:EventTrigger EventName="SelectionChanged">
+                                <Command:EventToCommand Command="{Binding SelectJobCommand}" CommandParameter="{Binding SelectedItem,ElementName=jobListBox}"/>
+                            </i:EventTrigger>
+                    	</i:Interaction.Triggers>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <control:Main_JobItem HorizontalAlignment="Left" VerticalAlignment="Top" Width="408" Company="{Binding Path=Company.Name}"  Bg="{Binding Path=Color}"  School="{Binding Path=Address.University}" Address="{Binding Path=Address.Detail}" Time="{Binding Path=StartTime}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    	
+                       
+                    </ListBox>-->
+                    <control:ListBox2 x:Name="jobListBox" ItemsSource="{Binding JobsList}"
+                                  RefreshRequested="jobListBox_RefreshRequested"
+                                  LoadRequested="jobListBox_LoadRequested"
+                                      SelectionChanged="jobListBox_SelectionChanged">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <Command:EventToCommand Command="{Binding SelectJobCommand}" CommandParameter="{Binding SelectedItem,ElementName=jobListBox}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <control:ListBox2.ItemTemplate>
+                            <DataTemplate>
+                                <control:Main_JobItem HorizontalAlignment="Left" VerticalAlignment="Top" Width="408" Company="{Binding Path=Company.Name}"  Bg="{Binding Path=Color}"  School="{Binding Path=Address.University}" Address="{Binding Path=Address.JobListDetail}" Time="{Binding Path=StartTime}" />
+                            </DataTemplate>
+                        </control:ListBox2.ItemTemplate>
+                    </control:ListBox2>
+
+                </Grid>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="我的求职" Foreground="Black" FontWeight="Bold">
+                <Grid>
+                    <ListBox x:Name="collectionJobListBox" ItemsSource="{Binding Path=CollectJobList}" SelectionMode="Single">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <Command:EventToCommand Command="{Binding SelectCollectJobCommand}" CommandParameter="{Binding SelectedItem,ElementName=collectionJobListBox}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <control:Main_FavouriteItem  Width="408" Company="{Binding CompanyName}" Status="{Binding Status}" Address="{Binding AddressDetail}" School="{Binding University}" Time="{Binding StartTime}" Bg="#5db5e6" Margin="0,0,0,12"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <!--<control:Main_FavouriteItem  Width="408" Bg="#e5927d"  Margin="0,0,0,12"/>
+                       
+                        <control:Main_FavouriteItem  Width="408"  Bg="#77c47f" Margin="0,0,0,12"/>
+                        <control:Main_FavouriteItem  Width="408" Bg="#e5927d" Margin="0,0,0,12"/>-->
+                    </ListBox>
+                </Grid>
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="校招咨讯" Foreground="Black" FontWeight="Bold">
+                
+                <ListBox x:Name="jobNewsListBox" ItemsSource="{Binding JobNewsList}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <Command:EventToCommand Command="{Binding SelectJobNewsCommand}" CommandParameter="{Binding SelectedItem,ElementName=jobNewsListBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <control:Main_WeiboItem  />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <!--<control:Main_WeiboItem />
+                        <control:Main_WeiboItem />
+                        <control:Main_WeiboItem />
+                        <control:Main_WeiboItem />-->
+                        
+                    </ListBox>
+              
+            </controls:PanoramaItem>
+            <controls:PanoramaItem Header="更多" Foreground="Black" FontWeight="Bold">
+                <ListBox x:Name="moreItemListBox" Margin="0,-13,0,0"  SelectionChanged="moreItemListBox_SelectionChanged" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <Command:EventToCommand Command="{Binding SelectMoreItemCommand}" CommandParameter="{Binding SelectedIndex ,ElementName=moreItemListBox}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <!--<Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                        
+                    </Grid.RowDefinitions>-->
+                    <ListBox.ItemsPanel >
+                        
+                        <ItemsPanelTemplate>
+                            <kit:WrapPanel Margin="0"></kit:WrapPanel>
+                        </ItemsPanelTemplate>
+
+                    </ListBox.ItemsPanel>
+                    <control:Main_MoreItem  TileName="微博登录" Image="{Binding Main_More_Change_Account, Source={StaticResource MultiResImageChooser}}" />
+                    <control:Main_MoreItem  TileName="清除数据" Image="{Binding Main_More_Clear_Cache, Source={StaticResource MultiResImageChooser}}"/>
+                    <control:Main_MoreItem  TileName="关于校招" Image="{Binding Main_More_About_Jobhub, Source={StaticResource MultiResImageChooser}}"/>
+                    <control:Main_MoreItem  TileName="隐私协议" Image="{Binding Main_More_Secret_Agreement, Source={StaticResource MultiResImageChooser}}"/>
+                    <control:Main_MoreItem  TileName="用户反馈" Image="{Binding Main_More_User_Feekback, Source={StaticResource MultiResImageChooser}}"/>
+                    <control:Main_MoreItem  TileName="检查更新" Image="{Binding Main_More_Check_Update, Source={StaticResource MultiResImageChooser}}"/>
+                <!--</Grid>-->
+                </ListBox>
+            </controls:PanoramaItem>
+            </controls:Panorama>
+        <control:Main_ChangeCity x:Name="main_ChangeCity" Height="800" VerticalAlignment="Top" Margin="0,-800,0,0" RenderTransformOrigin="0.5,0.5">
+        	<control:Main_ChangeCity.Projection>
+        		<PlaneProjection/>
+        	</control:Main_ChangeCity.Projection>
+        	<control:Main_ChangeCity.RenderTransform>
+        		<CompositeTransform/>
+        	</control:Main_ChangeCity.RenderTransform>
+        </control:Main_ChangeCity>
+    </Grid>
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" Opacity="0.8">
+            <shell:ApplicationBarIconButton x:Name="appbar_change_shool" IconUri="/Resource/Image/WVGA/appbar.school.rest.png" Text="切换地点" Click="appbar_btn_change_city" />
+
+            <shell:ApplicationBarIconButton x:Name="appbar_refresh" IconUri="/Resource/Image/WVGA/appbar.refresh.rest.png" Text="刷新" Click="appbar_refresh_Click" />
+            <shell:ApplicationBarIconButton x:Name="appbar_share" IconUri="/Resource/Image/WVGA/appbar.share.rest.png" Text="分享" Click="appbar_share_Click" />
+            
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>

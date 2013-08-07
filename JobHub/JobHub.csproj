@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E0F7895C-9732-4877-8BD6-0CA3045AFE3E}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JobHub</RootNamespace>
+    <AssemblyName>JobHub</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>JobHub.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>JobHub.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AMap.WP7.Map.API, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="AMap.WP7.Search.API, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GalaSoft.MvvmLight.WP71">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WP71\GalaSoft.MvvmLight.WP71.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP71">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WP71\GalaSoft.MvvmLight.Extras.WP71.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions" />
+    <Reference Include="Microsoft.Phone.Controls, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Maps, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WP71\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="system.data.linq" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Interactivity">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Laurent Bugnion (GalaSoft)\Mvvm Light Toolkit\Binaries\WP71\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+    <Reference Include="UmengClassLibrary, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ChangeDateTimeDialog.xaml.cs">
+      <DependentUpon>ChangeDateTimeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBox2\ListBox2.xaml.cs">
+      <DependentUpon>ListBox2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBox2\ListBox2BottomPanel.cs" />
+    <Compile Include="Controls\ListBox2\ListBox2MainPanel.cs" />
+    <Compile Include="Controls\ListBox2\ListBox2TopPanel.cs" />
+    <Compile Include="Controls\TwoInputDialog.xaml.cs">
+      <DependentUpon>TwoInputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Job_Share.xaml.cs">
+      <DependentUpon>Job_Share.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Job_ChangeStatus.xaml.cs">
+      <DependentUpon>Job_ChangeStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Job_Map.xaml.cs">
+      <DependentUpon>Job_Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Job_RelativeWeiboItem.xaml.cs">
+      <DependentUpon>Job_RelativeWeiboItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Job_SetRemind.xaml.cs">
+      <DependentUpon>Job_SetRemind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main_ChangeCity.xaml.cs">
+      <DependentUpon>Main_ChangeCity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main_FavouriteItem.xaml.cs">
+      <DependentUpon>Main_FavouriteItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main_JobItem.xaml.cs">
+      <DependentUpon>Main_JobItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main_MoreItem.xaml.cs">
+      <DependentUpon>Main_MoreItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Main_WeiboItem.xaml.cs">
+      <DependentUpon>Main_WeiboItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\PopupCotainer.xaml.cs">
+      <DependentUpon>PopupCotainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\InputDialog.xaml.cs">
+      <DependentUpon>InputDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase.cs" />
+    <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="Helper\DateTimeHelper.cs" />
+    <Compile Include="Helper\ImmediateLocation.cs" />
+    <Compile Include="Helper\MapAndLocationHelper.cs" />
+    <Compile Include="Helper\MultiResImageChooser.cs" />
+    <Compile Include="Helper\ResolutionHelper.cs" />
+    <Compile Include="Service References\EocodeServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\LinqToVisualTree.cs" />
+    <Compile Include="Tools\ListAnimation.cs" />
+    <Compile Include="Tools\MetroInMotion.cs" />
+    <Compile Include="ViewModel\JobDetailViewModel.cs" />
+    <Compile Include="View\AboutJobHubPage.xaml.cs">
+      <DependentUpon>AboutJobHubPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FeekBackPage.xaml.cs">
+      <DependentUpon>FeekBackPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\JobDetailPage.xaml.cs">
+      <DependentUpon>JobDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\JobNewsDetailPage.xaml.cs">
+      <DependentUpon>JobNewsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\DataItem.cs" />
+    <Compile Include="Model\DataService.cs" />
+    <Compile Include="Model\IDataService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\OauthPage.xaml.cs">
+      <DependentUpon>OauthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrivacyPage.xaml.cs">
+      <DependentUpon>PrivacyPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\ChangeDateTimeDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\ListBox2\ListBox2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\TwoInputDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Job_Share.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Job_ChangeStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Job_Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Job_RelativeWeiboItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Job_SetRemind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Main_ChangeCity.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Main_FavouriteItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Main_JobItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Main_MoreItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Main_WeiboItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\PopupCotainer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\InputDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AboutJobHubPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FeekBackPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\JobDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\JobNewsDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\OauthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrivacyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Library\AMap.WP7.Map.API.dll" />
+    <Content Include="Library\AMap.WP7.Map.API.xml" />
+    <Content Include="Library\AMap.WP7.Search.API.dll" />
+    <Content Include="Library\AMap.WP7.Search.API.xml" />
+    <Content Include="Library\Cirrious.MvvmCross.WindowsPhone.dll" />
+    <Content Include="Library\Cirrious.MvvmCross.WindowsPhone.pdb" />
+    <Content Include="Library\UmengClassLibrary.dll" />
+    <Content Include="Resource\Image\720p\bg_main.png" />
+    <Content Include="Resource\Image\720p\bg_set_remind_header.png" />
+    <Content Include="Resource\Image\720p\bg_title_bar.png" />
+    <Content Include="Resource\Image\720p\bus_end_pic.png" />
+    <Content Include="Resource\Image\720p\bus_start_pic.png" />
+    <Content Include="Resource\Image\720p\ic_about_jobhub.png" />
+    <Content Include="Resource\Image\720p\ic_back.png" />
+    <Content Include="Resource\Image\720p\ic_change_account.png" />
+    <Content Include="Resource\Image\720p\ic_change_address.png" />
+    <Content Include="Resource\Image\720p\ic_change_time.png" />
+    <Content Include="Resource\Image\720p\ic_check_update.png" />
+    <Content Include="Resource\Image\720p\ic_clear_cache.png" />
+    <Content Include="Resource\Image\720p\ic_current_location.png" />
+    <Content Include="Resource\Image\720p\ic_editor_add.png" />
+    <Content Include="Resource\Image\720p\ic_forward.png" />
+    <Content Include="Resource\Image\720p\ic_location.png" />
+    <Content Include="Resource\Image\720p\ic_login_password.png" />
+    <Content Include="Resource\Image\720p\ic_login_username.png" />
+    <Content Include="Resource\Image\720p\ic_secret_agreement.png" />
+    <Content Include="Resource\Image\720p\ic_user_feekback.png" />
+    <Content Include="Resource\Image\720p\ic_write.png" />
+    <Content Include="Resource\Image\720p\img_break_line.png" />
+    <Content Include="Resource\Image\WVGA\appbar.check.rest.png" />
+    <Content Include="Resource\Image\WVGA\appbar.remind.rest.png" />
+    <Content Include="Resource\Image\WVGA\bus_end_pic.jpg" />
+    <Content Include="Resource\Image\WVGA\bus_start_pic.jpg" />
+    <Content Include="Resource\Image\WVGA\ic_login_password.png" />
+    <Content Include="Resource\Image\WVGA\ic_login_username.png" />
+    <Content Include="Resource\Image\WXGA\begin.jpg" />
+    <Content Include="Resource\Image\WXGA\bg_main.png" />
+    <Content Include="Resource\Image\WXGA\bg_set_remind_header.png" />
+    <Content Include="Resource\Image\WXGA\bg_title_bar.png" />
+    <Content Include="Resource\Image\WXGA\bus_end_pic.png" />
+    <Content Include="Resource\Image\WXGA\bus_start_pic.png" />
+    <Content Include="Resource\Image\WXGA\ic_about_jobhub.png" />
+    <Content Include="Resource\Image\WXGA\ic_back.png" />
+    <Content Include="Resource\Image\WXGA\ic_change_account.png" />
+    <Content Include="Resource\Image\WXGA\ic_change_address.png" />
+    <Content Include="Resource\Image\WXGA\ic_change_time.png" />
+    <Content Include="Resource\Image\WXGA\ic_check_update.png" />
+    <Content Include="Resource\Image\WXGA\ic_clear_cache.png" />
+    <Content Include="Resource\Image\WXGA\ic_current_location.png" />
+    <Content Include="Resource\Image\WXGA\ic_editor_add.png" />
+    <Content Include="Resource\Image\WXGA\ic_forward.png" />
+    <Content Include="Resource\Image\WXGA\ic_location.png" />
+    <Content Include="Resource\Image\WXGA\ic_login_password.png" />
+    <Content Include="Resource\Image\WXGA\ic_login_username.png" />
+    <Content Include="Resource\Image\WXGA\ic_secret_agreement.png" />
+    <Content Include="Resource\Image\WXGA\ic_user_feekback.png" />
+    <Content Include="Resource\Image\WXGA\ic_write.png" />
+    <Content Include="Resource\Image\WXGA\img_break_line.png" />
+    <Content Include="SplashScreenImage.jpg" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Service References\EocodeServiceReference\Arrays.xsd" />
+    <None Include="Service References\EocodeServiceReference\common.xsd" />
+    <None Include="Service References\EocodeServiceReference\contracts.wsdl" />
+    <None Include="Service References\EocodeServiceReference\contracts.xsd" />
+    <None Include="Service References\EocodeServiceReference\geocode.wsdl" />
+    <None Include="Service References\EocodeServiceReference\geocode.xsd" />
+    <None Include="Service References\EocodeServiceReference\JobHub.EocodeServiceReference.GeocodeResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EocodeServiceReference\service.xsd" />
+    <Content Include="Resource\Image\WVGA\bg_set_remind_header.png" />
+    <Content Include="Resource\Image\WVGA\ic_change_address.png" />
+    <Content Include="Resource\Image\WVGA\ic_change_time.png" />
+    <Content Include="ServiceReferences.ClientConfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\Image\WVGA\appbar.favs.rest.png" />
+    <Content Include="Resource\Image\WVGA\appbar.path.rest.png" />
+    <Content Include="Resource\Image\WVGA\appbar.refresh.rest.png" />
+    <Content Include="Resource\Image\WVGA\appbar.school.rest.png" />
+    <Content Include="Resource\Image\WVGA\appbar.search.rest.png" />
+    <Content Include="Resource\Image\WVGA\appbar.share.rest.png" />
+    <Content Include="Resource\Image\WVGA\bg_main.png" />
+    <Content Include="Resource\Image\WVGA\bg_title_bar.png" />
+    <Content Include="Resource\Image\WVGA\ic_about_jobhub.png" />
+    <Content Include="Resource\Image\WVGA\ic_back.png" />
+    <Content Include="Resource\Image\WVGA\ic_change_account.png" />
+    <Content Include="Resource\Image\WVGA\ic_check_update.png" />
+    <Content Include="Resource\Image\WVGA\ic_clear_cache.png" />
+    <Content Include="Resource\Image\WVGA\ic_current_location.png" />
+    <Content Include="Resource\Image\WVGA\ic_edit.png" />
+    <Content Include="Resource\Image\WVGA\ic_editor_add.png" />
+    <Content Include="Resource\Image\WVGA\ic_forward.png" />
+    <Content Include="Resource\Image\WVGA\ic_location.png" />
+    <Content Include="Resource\Image\WVGA\ic_secret_agreement.png" />
+    <Content Include="Resource\Image\WVGA\ic_user_feekback.png" />
+    <Content Include="Resource\Image\WVGA\ic_write.png" />
+    <Content Include="Resource\Image\WVGA\img_break_line.png" />
+    <None Include="Service References\EocodeServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\EocodeServiceReference\configuration.svcinfo" />
+    <None Include="Service References\EocodeServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JobHub.API\JobHub.API.csproj">
+      <Project>{CBCC6BCF-7653-48B3-9576-87E7D28FCBAF}</Project>
+      <Name>JobHub.API</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JobHub.Dal\JobHub.Dal.csproj">
+      <Project>{196DE48F-75DC-4DE6-B7A4-84637112C8E3}</Project>
+      <Name>JobHub.Dal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EocodeServiceReference\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

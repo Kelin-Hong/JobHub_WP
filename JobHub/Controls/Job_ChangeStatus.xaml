@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="JobHub.Controls.Job_ChangeStatus"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:kit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:tool="clr_namespace:JobHub.Tools"   
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
+       xmlns:Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP71"     
+             mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    d:DesignHeight="800" d:DesignWidth="480">
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background >
+            <SolidColorBrush Color="Black" Opacity="0.7"/>
+            <!--<ImageBrush ImageSource="/Resource/Image/WVGA/bg_black_opacity80.png"/>-->
+        </Grid.Background>
+        <ListBox x:Name="statusListBox" ItemsSource="{Binding StatusList}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <Command:EventToCommand Command="{Binding StatusChangeCompletedCommand}" CommandParameter="{Binding SelectedItem,ElementName=statusListBox}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                <kit:WrapPanel Margin="24,86,24,0"></kit:WrapPanel>
+                </ItemsPanelTemplate>
+              
+            </ListBox.ItemsPanel>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border   Margin="10,10,0,0"  Width="160" Height="160" Background="{Binding Color}" >
+                        <TextBlock Margin="20"  FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="{Binding Name}"></TextBlock>
+                        
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <!--<Border   Margin="10,10,0,0"  Width="160" Height="160" Background="#e5927d" >
+                <TextBlock Margin="20"  FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="宣讲会"></TextBlock>
+            </Border>
+            <Border Margin="10,10,0,0" Width="160" Height="160" Background="#e5927d" >
+                <TextBlock Margin="20" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="网申"></TextBlock>
+            </Border>
+            <Border Margin="10,10,0,0" Width="160" Height="160" Background="#e97c65" >
+                <TextBlock Margin="20" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="笔试"></TextBlock>
+            </Border>
+            <Border Margin="10,10,0,0" Width="160" Height="160" Background="#5db5e6" >
+                <TextBlock Margin="20" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="一面"></TextBlock>
+            </Border>
+            <Border Margin="10,10,0,0" Width="160" Height="160" Background="#5db5e6" >
+                <TextBlock Margin="20" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="二面"></TextBlock>
+            </Border>
+            <Border Margin="10,10,0,0" Width="160" Height="160" Background="#5db5e6" >
+                <TextBlock Margin="20" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="三面"></TextBlock>
+            </Border>
+            <Border Margin="10,10,0,0" Width="160" Height="160" Background="#77c47f " >
+                <TextBlock Margin="20" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="Offer"></TextBlock>
+            </Border>
+            <Border Margin="10,10,0,0" Width="160" Height="160" Background="#77c47f " >
+                <TextBlock Margin="20" FontSize="22" FontWeight="Bold" VerticalAlignment="Bottom" Text="添加状态"></TextBlock>
+            </Border>-->
+        
+        </ListBox>
+    </Grid>
+</UserControl>
